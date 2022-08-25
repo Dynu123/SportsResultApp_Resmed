@@ -1,0 +1,40 @@
+//
+//  NetworkService.swift
+//  SportResultsApp
+//
+//  Created by Dyana Varghese on 24/08/22.
+//
+
+import Foundation
+import Combine
+import Alamofire
+
+protocol NetworkServiceProtocol: AnyObject {
+    func execute<T: Codable>(_ urlRequest: URLRequestBuilder, model: T.Type, completion: @escaping (Result<T, AFError>) -> Void) -> AnyCancellable
+}
+
+extension NetworkServiceProtocol {
+    func execute<T: Codable>(_ urlRequest: URLRequestBuilder, model: T.Type, completion: @escaping (Result<T, AFError>) -> Void) -> AnyCancellable {
+        
+        let requestPublisher = AF.request(urlRequest).publishDecodable(type: T.self)
+        
+        let cancellable = requestPublisher
+            .subscribe(on: DispatchQueue(label: "Background Queue", qos: .background))
+            .receive(on: RunLoop.main)
+            .sink { (response) in
+                if let value = response.value {
+                    completion(Result.success(value))
+                } else if let error = response.error {
+                    completion(Result.failure(error))
+                }
+            }
+        return cancellable
+    }
+}
+
+public class NetworkService: NetworkServiceProtocol {
+    static let `default`: NetworkServiceProtocol = {
+        var service = NetworkService()
+        return service
+    }()
+}
