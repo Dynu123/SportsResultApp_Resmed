@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct F1: SportData, Codable {
+struct F1: SportData, Codable, Equatable {
     var sportType: SportType?
     
     var publicationDate: String = ""
@@ -17,8 +17,12 @@ struct F1: SportData, Codable {
     var winner: String = ""
     
     var seconds: Float
+    
+    static func ==(lhs: F1, rhs: F1) -> Bool {
+        return lhs.sportType == rhs.sportType && lhs.publicationDate == rhs.publicationDate && lhs.tournament == rhs.tournament && lhs.winner == rhs.winner && lhs.seconds == rhs.seconds
+    }
 }
 
 extension F1 {
-    static var sample = F1(sportType: .f1, publicationDate: "09-02-2022", tournament: "abc", winner: "rafael", seconds: 0.5)
+    static var sample = F1(sportType: .f1, publicationDate: "Oct 10, 1991 8:09:03 PM", tournament: "Cooking", winner: "Dyana Varghese", seconds: 1.02)
 }

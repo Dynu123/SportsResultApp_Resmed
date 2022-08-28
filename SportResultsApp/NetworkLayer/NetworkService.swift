@@ -9,6 +9,8 @@ import Foundation
 import Combine
 import Alamofire
 
+
+
 protocol NetworkServiceProtocol: AnyObject {
     func execute<T: Codable>(_ urlRequest: URLRequestBuilder, model: T.Type, completion: @escaping (Result<T, AFError>) -> Void) -> AnyCancellable
 }

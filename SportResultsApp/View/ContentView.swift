@@ -13,21 +13,24 @@ struct ContentView: View {
     @ObservedObject var sportVM: SportVM
     
     init() {
-        sportVM = SportVM(networkService: NetworkService.default)
+        sportVM = SportVM(networkService: NetworkService.default, output: Output())
     }
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack(alignment: .top) {
                 NavigationLink(isActive: $sportVM.navigate) {
                     ResultsView().environmentObject(sportVM)
                 } label: {
                     EmptyView()
                 }.hidden()
+                Image("logo")
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .top)
                 VStack {
                     Spacer()
                     Button {
-                        sportVM.getResults()
+                        sportVM.getResults(completion: {})
                     } label: {
                         HStack {
                             Text("Show results")
@@ -38,8 +41,8 @@ struct ContentView: View {
                         .padding()
                         .foregroundColor(.white)
                         .background(LinearGradient(gradient: Gradient(colors: [.red, .blue, .green]),
-                                                   startPoint: .leading,
-                                                   endPoint: .trailing))
+                                                   startPoint: .topLeading,
+                                                   endPoint: .bottomTrailing))
                         .cornerRadius(40)
                         .padding()
                     }

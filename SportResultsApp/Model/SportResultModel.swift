@@ -21,7 +21,14 @@ struct SportResult {
     
 }
 
-
 extension APIResult {
-    static var sample = APIResult(f1Results: Array(repeating: .sample, count: 4), nbaResults: Array(repeating: .sample, count: 3), Tennis: Array(repeating: .sample, count: 2))
+    static var sample = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: Array(repeating: .sample, count: 1), Tennis: Array(repeating: .sample, count: 1))
+    
+    static var sampleWithNoF1 = APIResult(f1Results: [], nbaResults: Array(repeating: .sample, count: 1), Tennis: Array(repeating: .sample, count: 1))
+    
+    static var sampleWithNoNBA = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: [], Tennis: Array(repeating: .sample, count: 1))
+    
+    static var sampleWithNoTennis = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: Array(repeating: .sample, count: 1), Tennis: [])
+    
+    static var sampleWithNoResults = APIResult(f1Results: [], nbaResults: [], Tennis: [])
 }

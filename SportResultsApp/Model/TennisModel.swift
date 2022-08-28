@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tennis: SportData, Codable {
+struct Tennis: SportData, Codable, Equatable {
     var sportType: SportType?
     
     var publicationDate: String = ""
@@ -18,8 +18,12 @@ struct Tennis: SportData, Codable {
     
     let numberOfSets: Int
     let looser: String
+    
+    static func ==(lhs: Tennis, rhs: Tennis) -> Bool {
+        return lhs.sportType == rhs.sportType && lhs.publicationDate == rhs.publicationDate && lhs.tournament == rhs.tournament && lhs.winner == rhs.winner && lhs.numberOfSets == rhs.numberOfSets && lhs.looser == rhs.looser
+    }
 }
 
 extension Tennis {
-    static var sample = Tennis(sportType: .tennis, publicationDate: "09-02-2022", tournament: "abc", winner: "rafael", numberOfSets: 2, looser: "radfel")
+    static var sample = Tennis(sportType: .tennis, publicationDate: "Apr 4, 1987 11:15:15 PM", tournament: "Onam", winner: "Della", numberOfSets: 2, looser: "Joby")
 }

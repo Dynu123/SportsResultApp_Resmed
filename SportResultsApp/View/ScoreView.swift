@@ -22,7 +22,7 @@ struct ScoreView: View {
                 Rectangle().cornerRadius(10, corners: [.topLeft, .bottomLeft]).frame(width: 20).foregroundColor(sportColor)
                 VStack(spacing: 0) {
                     Text(content)
-                        .foregroundColor(Color.secondary)
+                        .foregroundColor(sportColor)
                         .padding(8)
                         .font(.system(.headline, design: .rounded))
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -30,7 +30,7 @@ struct ScoreView: View {
                 }
                 .padding(5)
                 .multilineTextAlignment(.center)
-                .background(sportColor.opacity(0.3))
+                .background(sportColor.opacity(0.1))
                 Rectangle().cornerRadius(10, corners: [.topRight, .bottomRight]).frame(width: 20).foregroundColor(sportColor)
             }
         }
@@ -43,6 +43,6 @@ struct ScoreView: View {
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView().environmentObject(SportVM(networkService: NetworkService()))
+        ResultsView().environmentObject(SportVM(networkService: NetworkService(), output: Output()))
     }
 }

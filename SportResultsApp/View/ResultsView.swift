@@ -9,33 +9,7 @@ import SwiftUI
 
 struct ResultsView: View {
     @EnvironmentObject var sportVM: SportVM
-    @State var didClick: Bool = false
-    @State var selectedIndex: Int = -1
-    
-//    var body: some View {
-//        ScrollView {
-//            VStack(alignment: .center, spacing: 16) {
-//                ForEach(sportVM.finalDatasource.indices, id: \.self) { index in
-//                    Text("Results for \(sportVM.finalDatasource[index].date)")
-//                        .fontWeight(.bold)
-//                        .font(.system(.title, design: .rounded))
-//                        .foregroundColor(.primary)
-//                        .onTapGesture {
-//                            withAnimation {
-//                                if selectedIndex == index {
-//                                    selectedIndex = -1
-//                                } else {
-//                                    selectedIndex = index
-//                                }
-//                            }
-//                        }
-//                    if selectedIndex == index {
-//                        ResultSubView(result: sportVM.finalDatasource[index])
-//                    }
-//                }
-//            }
-//        }
-//    }
+    @Environment(\.presentationMode) var presentation
     
     var body: some View {
         ScrollView {
@@ -44,15 +18,35 @@ struct ResultsView: View {
                     DisclosureGroup {
                         ResultSubView(result: sportVM.finalDatasource[index])
                     } label: {
-                        Text("Results for \(sportVM.finalDatasource[index].date)")
+                        Text("\(sportVM.finalDatasource[index].date)")
                             .fontWeight(.bold)
                             .font(.system(.headline, design: .rounded))
-                            .foregroundColor(.primary)
+                            .foregroundColor(Color.primary.opacity(0.7))
+                            .padding(.bottom, 5)
                     }
-                    .accentColor(.primary)
+                    .accentColor(Color.primary.opacity(0.7))
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(16)
+        }
+        .background(LinearGradient(gradient: Gradient(colors: [.red.opacity(0.3),
+                                                               .blue.opacity(0.3),
+                                                               .green.opacity(0.3)]),
+                                   startPoint: .topLeading,
+                                   endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all))
+        .navigationTitle("Results")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    self.presentation.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(Color.primary)
+                }
+            }
         }
     }
 }
