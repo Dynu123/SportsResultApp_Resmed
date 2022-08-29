@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - F1 Model to hold data from API
 struct F1: SportData, Codable, Equatable {
     var sportType: SportType?
     
@@ -23,6 +24,7 @@ struct F1: SportData, Codable, Equatable {
     }
 }
 
+// MARK: - Extend F1 tp hold sample inputs
 extension F1 {
     static var sample1 = F1(sportType: .f1, publicationDate: "Oct 10, 1991 8:09:03 PM", tournament: "Cooking", winner: "Dyana Varghese", seconds: 1.02)
     static var sample2 = F1(sportType: .f1, publicationDate: "Oct 11, 1991 8:09:03 PM", tournament: "Book reading", winner: "Dyana Varghese", seconds: 1.02)

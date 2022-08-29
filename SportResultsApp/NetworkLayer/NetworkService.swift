@@ -10,11 +10,12 @@ import Combine
 import Alamofire
 
 
-
+// MARK: - NetworkServiceProtocol to execute URLRequest
 protocol NetworkServiceProtocol: AnyObject {
     func execute<T: Codable>(_ urlRequest: URLRequestBuilder, model: T.Type, completion: @escaping (Result<T, AFError>) -> Void) -> AnyCancellable
 }
 
+// MARK: - Extend NetworkServiceProtocol to implement the method
 extension NetworkServiceProtocol {
     func execute<T: Codable>(_ urlRequest: URLRequestBuilder, model: T.Type, completion: @escaping (Result<T, AFError>) -> Void) -> AnyCancellable {
         

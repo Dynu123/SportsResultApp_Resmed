@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Tennis Model to hold data from API
 struct Tennis: SportData, Codable, Equatable {
     var sportType: SportType?
     
@@ -24,6 +25,7 @@ struct Tennis: SportData, Codable, Equatable {
     }
 }
 
+// MARK: - Extend Tennis tp hold sample inputs
 extension Tennis {
     static var sample = Tennis(sportType: .tennis, publicationDate: "Apr 4, 1987 11:15:15 PM", tournament: "Onam", winner: "Della", numberOfSets: 2, looser: "Joby")
 }

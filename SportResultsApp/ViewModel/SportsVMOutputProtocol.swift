@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Protocol to calculate the final datasource in chronological order(most recent first)
 protocol SportsVMOutputProtocol: AnyObject {
     var finalDatasource: [SportResult] { get set }
     func updateFinalDatasource(from results: [SportData])

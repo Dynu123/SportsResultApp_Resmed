@@ -8,10 +8,12 @@
 import Foundation
 import Alamofire
 
+// MARK: - Create API enum conforming to URLRequestBuilder, add the api name
 enum API: URLRequestBuilder {
     case getSportResults
 }
 
+// MARK: - Extend API to implement the inputs
 extension API {
 
     var path: String {

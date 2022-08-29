@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+
+// MARK: - Define protocol which conforms with URLRequestConvertible in Alamofire
 protocol URLRequestBuilder: URLRequestConvertible {
     var baseURL: URL { get }
     var requestURL: URL { get }
@@ -20,6 +22,7 @@ protocol URLRequestBuilder: URLRequestConvertible {
     
 }
 
+// MARK: - Extend protocol to define each input
 extension URLRequestBuilder {
     var baseURL: URL {
         return URL(string: AppEnvironment.baseUrl)!

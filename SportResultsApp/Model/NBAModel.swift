@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - NBA Model to hold data from API
 struct NBA: SportData, Codable, Equatable {
     var sportType: SportType?
     
@@ -24,6 +25,7 @@ struct NBA: SportData, Codable, Equatable {
     }
 }
 
+// MARK: - Extend NBA tp hold sample inputs
 extension NBA {
     static var sample1 = NBA(sportType: .nba, publicationDate: "Apr 5, 1988 9:15:15 AM", tournament: "KCYM", winner: "Lijo", gameNumber: 3, mvp: "Kidengen")
     static var sample2 = NBA(sportType: .nba, publicationDate: "Oct 11, 1991 9:09:03 PM", tournament: "KCYM", winner: "Lijo", gameNumber: 3, mvp: "Kidengen")

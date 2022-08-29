@@ -8,12 +8,14 @@
 import Foundation
 
 
+// MARK: - Model to decode JSON data
 struct APIResult: Codable {
     let f1Results: [F1]
     let nbaResults: [NBA]
     let Tennis: [Tennis]
 }
 
+// MARK: - Final model for displaying data in the view
 struct SportResult {
     var id: UUID = UUID()
     var date: String

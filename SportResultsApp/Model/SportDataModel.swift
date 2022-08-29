@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Create protocol to hold the common parameters in all sport types
 protocol SportData {
     var sportType: SportType? { get }
     var publicationDate: String { get }

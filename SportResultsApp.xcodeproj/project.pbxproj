@@ -15,7 +15,6 @@
 		8622D15628B7976C00B9172E /* View+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622D15528B7976B00B9172E /* View+extension.swift */; };
 		8637437128BB94B40000ABCC /* MockSportsVMOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637437028BB94B40000ABCC /* MockSportsVMOutput.swift */; };
 		8637437328BB953B0000ABCC /* SportsVMOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637437228BB953B0000ABCC /* SportsVMOutputProtocol.swift */; };
-		8637437528BB95790000ABCC /* SportsViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637437428BB95790000ABCC /* SportsViewModelInput.swift */; };
 		863C41D528B2AFB1005676E4 /* SportResultsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863C41D428B2AFB1005676E4 /* SportResultsAppApp.swift */; };
 		863C41D728B2AFB1005676E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863C41D628B2AFB1005676E4 /* ContentView.swift */; };
 		863C41D928B2AFB5005676E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863C41D828B2AFB5005676E4 /* Assets.xcassets */; };
@@ -58,7 +57,6 @@
 		8622D15528B7976B00B9172E /* View+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extension.swift"; sourceTree = "<group>"; };
 		8637437028BB94B40000ABCC /* MockSportsVMOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSportsVMOutput.swift; sourceTree = "<group>"; };
 		8637437228BB953B0000ABCC /* SportsVMOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsVMOutputProtocol.swift; sourceTree = "<group>"; };
-		8637437428BB95790000ABCC /* SportsViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewModelInput.swift; sourceTree = "<group>"; };
 		863C41D128B2AFB1005676E4 /* SportResultsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportResultsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		863C41D428B2AFB1005676E4 /* SportResultsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportResultsAppApp.swift; sourceTree = "<group>"; };
 		863C41D628B2AFB1005676E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			children = (
 				86E6382428B2DF2C00EEB16C /* SportVM.swift */,
 				8637437228BB953B0000ABCC /* SportsVMOutputProtocol.swift */,
-				8637437428BB95790000ABCC /* SportsViewModelInput.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -327,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				867C80A928B4E36B00C7E9F7 /* String+extension.swift in Sources */,
-				8637437528BB95790000ABCC /* SportsViewModelInput.swift in Sources */,
 				863C41D728B2AFB1005676E4 /* ContentView.swift in Sources */,
 				8622D15428B7819800B9172E /* ViewState.swift in Sources */,
 				867C80AE28B4E3D400C7E9F7 /* F1Model.swift in Sources */,

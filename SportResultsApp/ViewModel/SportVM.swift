@@ -25,6 +25,7 @@ class SportVM: ObservableObject {
         self.output = output
     }
     
+    // MARK: - API call to fetch the results
     func getResults(completion: @escaping () -> Void) {
         navigate = false
         isLoading = true
