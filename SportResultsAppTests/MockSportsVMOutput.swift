@@ -10,6 +10,8 @@ import XCTest
 import Combine
 import Alamofire
 
+// MARK: - Class for mocking SportsVMOutputProtocol
+
 class MockSportsVMOutput: SportsVMOutputProtocol {
     var finalDatasource: [SportResult] = []
     func updateFinalDatasource(from results: [SportData]) {
