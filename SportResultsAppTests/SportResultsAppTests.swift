@@ -11,6 +11,8 @@ import Alamofire
 import Combine
 
 class SportResultsAppTests: XCTestCase {
+    
+    // MARK: - Declare parameters for depedency injection by creating mock network service and mock sports output
     var viewModel: SportVM!
     var networkService: MockNetworkService!
     var output: MockSportsVMOutput!
@@ -21,6 +23,8 @@ class SportResultsAppTests: XCTestCase {
         viewModel = .init(networkService: networkService, output: output)
     }
     
+    
+    // MARK: - Test for validating data on successfull API call
     func testDatasource_onAPIcall_success() throws {
         networkService.fetchSportsResult = CurrentValueSubject(APIResult.sample).eraseToAnyPublisher()
         let expectation = expectation(description: "wait for completion")
@@ -41,6 +45,7 @@ class SportResultsAppTests: XCTestCase {
         XCTAssertEqual(viewModel.finalDatasource[3].results[0] as! Tennis, Tennis.sample)
     }
     
+    // MARK: - Test for validating data on API call failure
     func testDatasource_onAPIcall_failure() throws {
         let error = AFError.createURLRequestFailed(error: NSError())
         networkService.fetchSportsResult = Fail(error: error).eraseToAnyPublisher()
@@ -53,6 +58,7 @@ class SportResultsAppTests: XCTestCase {
         XCTAssertEqual(viewModel.finalDatasource.count, 0)
     }
     
+    // MARK: - Test for validating data on sucessfull API call but response has no F1 results
     func testDatasource_onAPIcall_success_withNoF1Results() throws {
         networkService.fetchSportsResult = CurrentValueSubject(APIResult.sampleWithNoF1).eraseToAnyPublisher()
         let expectation = expectation(description: "wait for completion")
@@ -70,6 +76,7 @@ class SportResultsAppTests: XCTestCase {
         XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! Tennis, Tennis.sample)
     }
     
+    // MARK: - Test for validating data on sucessfull API call but response has no NBA results
     func testDatasource_onAPIcall_success_withNoNBAResults() throws {
         networkService.fetchSportsResult = CurrentValueSubject(APIResult.sampleWithNoNBA).eraseToAnyPublisher()
         let expectation = expectation(description: "wait for completion")
@@ -87,6 +94,7 @@ class SportResultsAppTests: XCTestCase {
         XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! Tennis, Tennis.sample)
     }
     
+    // MARK: - Test for validating data on sucessfull API call but response has no Tennis results
     func testDatasource_onAPIcall_success_withNoTennisResults() throws {
         networkService.fetchSportsResult = CurrentValueSubject(APIResult.sampleWithNoTennis).eraseToAnyPublisher()
         let expectation = expectation(description: "wait for completion")
@@ -105,6 +113,7 @@ class SportResultsAppTests: XCTestCase {
         XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! NBA, NBA.sample1)
     }
     
+    // MARK: - Test for validating data on sucessfull API call but response has no results declared
     func testDatasource_onAPIcall_success_withNoResults() throws {
         networkService.fetchSportsResult = CurrentValueSubject(APIResult.sampleWithNoResults).eraseToAnyPublisher()
         let expectation = expectation(description: "wait for completion")
