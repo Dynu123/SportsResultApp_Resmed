@@ -29,13 +29,16 @@ class SportResultsAppTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNotNil(viewModel.finalDatasource)
-        XCTAssertEqual(viewModel.finalDatasource.count, 3)
-        XCTAssertEqual(viewModel.finalDatasource[0].date, "10-10-1991")
-        XCTAssertEqual(viewModel.finalDatasource[1].date, "05-04-1988")
-        XCTAssertEqual(viewModel.finalDatasource[2].date, "04-04-1987")
-        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! F1, F1.sample)
-        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! NBA, NBA.sample)
-        XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! Tennis, Tennis.sample)
+        XCTAssertEqual(viewModel.finalDatasource.count, 4)
+        XCTAssertEqual(viewModel.finalDatasource[0].date, "11-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[1].date, "10-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[2].date, "05-04-1988")
+        XCTAssertEqual(viewModel.finalDatasource[3].date, "04-04-1987")
+        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! NBA, NBA.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[0].results[1] as! F1, F1.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! F1, F1.sample1)
+        XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! NBA, NBA.sample1)
+        XCTAssertEqual(viewModel.finalDatasource[3].results[0] as! Tennis, Tennis.sample)
     }
     
     func testDatasource_onAPIcall_failure() throws {
@@ -58,11 +61,13 @@ class SportResultsAppTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNotNil(viewModel.finalDatasource)
-        XCTAssertEqual(viewModel.finalDatasource.count, 2)
-        XCTAssertEqual(viewModel.finalDatasource[0].date, "05-04-1988")
-        XCTAssertEqual(viewModel.finalDatasource[1].date, "04-04-1987")
-        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! NBA, NBA.sample)
-        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! Tennis, Tennis.sample)
+        XCTAssertEqual(viewModel.finalDatasource.count, 3)
+        XCTAssertEqual(viewModel.finalDatasource[0].date, "11-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[1].date, "05-04-1988")
+        XCTAssertEqual(viewModel.finalDatasource[2].date, "04-04-1987")
+        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! NBA, NBA.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! NBA, NBA.sample1)
+        XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! Tennis, Tennis.sample)
     }
     
     func testDatasource_onAPIcall_success_withNoNBAResults() throws {
@@ -73,11 +78,13 @@ class SportResultsAppTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNotNil(viewModel.finalDatasource)
-        XCTAssertEqual(viewModel.finalDatasource.count, 2)
-        XCTAssertEqual(viewModel.finalDatasource[0].date, "10-10-1991")
-        XCTAssertEqual(viewModel.finalDatasource[1].date, "04-04-1987")
-        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! F1, F1.sample)
-        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! Tennis, Tennis.sample)
+        XCTAssertEqual(viewModel.finalDatasource.count, 3)
+        XCTAssertEqual(viewModel.finalDatasource[0].date, "11-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[1].date, "10-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[2].date, "04-04-1987")
+        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! F1, F1.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! F1, F1.sample1)
+        XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! Tennis, Tennis.sample)
     }
     
     func testDatasource_onAPIcall_success_withNoTennisResults() throws {
@@ -88,11 +95,14 @@ class SportResultsAppTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNotNil(viewModel.finalDatasource)
-        XCTAssertEqual(viewModel.finalDatasource.count, 2)
-        XCTAssertEqual(viewModel.finalDatasource[0].date, "10-10-1991")
-        XCTAssertEqual(viewModel.finalDatasource[1].date, "05-04-1988")
-        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! F1, F1.sample)
-        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! NBA, NBA.sample)
+        XCTAssertEqual(viewModel.finalDatasource.count, 3)
+        XCTAssertEqual(viewModel.finalDatasource[0].date, "11-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[1].date, "10-10-1991")
+        XCTAssertEqual(viewModel.finalDatasource[2].date, "05-04-1988")
+        XCTAssertEqual(viewModel.finalDatasource[0].results[0] as! NBA, NBA.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[0].results[1] as! F1, F1.sample2)
+        XCTAssertEqual(viewModel.finalDatasource[1].results[0] as! F1, F1.sample1)
+        XCTAssertEqual(viewModel.finalDatasource[2].results[0] as! NBA, NBA.sample1)
     }
     
     func testDatasource_onAPIcall_success_withNoResults() throws {

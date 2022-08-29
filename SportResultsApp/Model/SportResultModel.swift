@@ -22,13 +22,13 @@ struct SportResult {
 }
 
 extension APIResult {
-    static var sample = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: Array(repeating: .sample, count: 1), Tennis: Array(repeating: .sample, count: 1))
+    static var sample = APIResult(f1Results: [.sample1, .sample2], nbaResults: [.sample1, .sample2], Tennis: Array(repeating: .sample, count: 1))
     
-    static var sampleWithNoF1 = APIResult(f1Results: [], nbaResults: Array(repeating: .sample, count: 1), Tennis: Array(repeating: .sample, count: 1))
+    static var sampleWithNoF1 = APIResult(f1Results: [], nbaResults: [.sample1, .sample2], Tennis: Array(repeating: .sample, count: 1))
     
-    static var sampleWithNoNBA = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: [], Tennis: Array(repeating: .sample, count: 1))
+    static var sampleWithNoNBA = APIResult(f1Results: [.sample1, .sample2], nbaResults: [], Tennis: Array(repeating: .sample, count: 1))
     
-    static var sampleWithNoTennis = APIResult(f1Results: Array(repeating: .sample, count:  1), nbaResults: Array(repeating: .sample, count: 1), Tennis: [])
+    static var sampleWithNoTennis = APIResult(f1Results: [.sample1, .sample2], nbaResults: [.sample1, .sample2], Tennis: [])
     
     static var sampleWithNoResults = APIResult(f1Results: [], nbaResults: [], Tennis: [])
 }

@@ -14,17 +14,21 @@ struct ResultsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 16) {
-                ForEach(sportVM.finalDatasource.indices, id: \.self) { index in
-                    DisclosureGroup {
-                        ResultSubView(result: sportVM.finalDatasource[index])
-                    } label: {
-                        Text("\(sportVM.finalDatasource[index].date)")
-                            .fontWeight(.bold)
-                            .font(.system(.headline, design: .rounded))
-                            .foregroundColor(Color.primary.opacity(0.7))
-                            .padding(.bottom, 5)
+                if sportVM.finalDatasource.isEmpty {
+                    Text("No results founds")
+                } else {
+                    ForEach(sportVM.finalDatasource.indices, id: \.self) { index in
+                        DisclosureGroup {
+                            ResultSubView(result: sportVM.finalDatasource[index])
+                        } label: {
+                            Text("\(sportVM.finalDatasource[index].date)")
+                                .fontWeight(.bold)
+                                .font(.system(.headline, design: .rounded))
+                                .foregroundColor(Color.primary.opacity(0.7))
+                                .padding(.bottom, 5)
+                        }
+                        .accentColor(Color.primary.opacity(0.7))
                     }
-                    .accentColor(Color.primary.opacity(0.7))
                 }
             }
             .padding(16)
