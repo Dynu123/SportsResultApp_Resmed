@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - F1 Model to hold data from API
 struct F1: SportData, Codable, Equatable {
-    var sportType: SportType?
+    var sportType: SportType = .f1
     
     var publicationDate: String = ""
     
@@ -21,6 +21,10 @@ struct F1: SportData, Codable, Equatable {
     
     static func ==(lhs: F1, rhs: F1) -> Bool {
         return lhs.sportType == rhs.sportType && lhs.publicationDate == rhs.publicationDate && lhs.tournament == rhs.tournament && lhs.winner == rhs.winner && lhs.seconds == rhs.seconds
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case publicationDate, tournament, winner, seconds
     }
 }
 

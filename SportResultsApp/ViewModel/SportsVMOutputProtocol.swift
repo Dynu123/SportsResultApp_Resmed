@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Protocol to calculate the final datasource in chronological order(most recent first)
 protocol SportsVMOutputProtocol: AnyObject {
     var finalDatasource: [SportResult] { get set }
+    
     func updateFinalDatasource(from results: [SportData])
 }
 
@@ -18,7 +19,7 @@ class Output: SportsVMOutputProtocol {
     
     func updateFinalDatasource(from results: [SportData]) {
         let sortedResults = results.sorted(by: { $0.publicationDate.toFullDate.toCurrentTimezone() > $1.publicationDate.toFullDate.toCurrentTimezone() })
-        var dateSet: [String] = []
+        var dateSet: [String] = [] // used array because order of elements is important 
         for each in sortedResults {
             if !dateSet.contains(each.publicationDate.toDatePart) {
                 dateSet.append(each.publicationDate.toDatePart)

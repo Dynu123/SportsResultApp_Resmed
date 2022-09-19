@@ -25,8 +25,7 @@ struct ResultSubView: View {
                     let looser = (value as? Tennis)?.looser ?? ""
                     let numberOfSets = (value as? Tennis)?.numberOfSets ?? 0
                     ScoreView(content: "\(value.tournament): \(value.winner) wins against \(looser) in \(numberOfSets) sets", sportColor: .green)
-                case .none:
-                    EmptyView()
+                
                 }
             }
         }

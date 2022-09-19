@@ -38,25 +38,7 @@ class SportVM: ObservableObject {
             case .success(let apiResult):
                 var results: [SportData] = []
                 results.removeAll()
-                if !apiResult.f1Results.isEmpty {
-                    for var eachf1 in apiResult.f1Results {
-                        eachf1.sportType = .f1
-                        results.append(eachf1)
-                    }
-                }
-                if !apiResult.nbaResults.isEmpty {
-                    for var eachnba in apiResult.nbaResults {
-                        eachnba.sportType = .nba
-                        results.append(eachnba)
-                    }
-                }
-                if !apiResult.Tennis.isEmpty {
-                    for var eachtennis in apiResult.Tennis {
-                        eachtennis.sportType = .tennis
-                        results.append(eachtennis)
-                    }
-                }
-                
+                results = apiResult.f1Results + apiResult.nbaResults + apiResult.Tennis // handled code optimization here
                 self.output.updateFinalDatasource(from: results)
                 self.finalDatasource = self.output.finalDatasource
                 completion() // for test case
